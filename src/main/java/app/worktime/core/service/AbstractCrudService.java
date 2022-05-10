@@ -1,8 +1,8 @@
 package app.worktime.core.service;
 
-import aps.financemanagerapi.core.entity.BaseEntity;
-import aps.financemanagerapi.core.repository.BaseRepository;
-import aps.financemanagerapi.infrastructure.exception.ResourceNotFoundException;
+import app.worktime.core.entity.BaseEntity;
+import app.worktime.core.repository.BaseRepository;
+import app.worktime.infrastructure.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.BeanUtils;

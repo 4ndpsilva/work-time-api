@@ -1,6 +1,6 @@
 package app.worktime.core.repository;
 
-import aps.financemanagerapi.core.entity.BaseEntity;
+import app.worktime.core.entity.BaseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.NoRepositoryBean;

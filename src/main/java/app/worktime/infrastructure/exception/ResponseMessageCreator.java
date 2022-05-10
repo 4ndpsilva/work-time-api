@@ -1,7 +1,7 @@
 package app.worktime.infrastructure.exception;
 
-import aps.financemanagerapi.infrastructure.exception.dto.ErrorDetailDTO;
-import aps.financemanagerapi.infrastructure.exception.dto.ErrorResponseDTO;
+import app.worktime.infrastructure.exception.dto.ErrorDetailDTO;
+import app.worktime.infrastructure.exception.dto.ErrorResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;

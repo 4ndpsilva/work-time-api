@@ -1,6 +1,6 @@
 package app.worktime.infrastructure.exception;
 
-import aps.financemanagerapi.infrastructure.exception.dto.ErrorResponseDTO;
+import app.worktime.infrastructure.exception.dto.ErrorResponseDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

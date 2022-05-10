@@ -1,8 +1,8 @@
 package app.worktime.core.service;
 
-import aps.financemanagerapi.core.entity.BaseEntity;
-import aps.financemanagerapi.core.repository.BaseRepository;
-import aps.financemanagerapi.core.repository.spec.AbstractSpec;
+import app.worktime.core.entity.BaseEntity;
+import app.worktime.core.repository.BaseRepository;
+import app.worktime.core.repository.spec.AbstractSpec;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 
