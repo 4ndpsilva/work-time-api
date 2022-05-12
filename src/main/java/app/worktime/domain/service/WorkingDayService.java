@@ -41,7 +41,7 @@ public class WorkingDayService extends BasicCrudService<WorkingDay, Long> {
         final LocalTime endTime = entity.getEndTime();
 
         repository.findAll().forEach(w -> {
-            if(w.getDate().compareTo(date) == 0){
+            if(date.compareTo(w.getDate()) == 0){
                 if(startTime.compareTo(w.getStartTime()) == 0){
                     throw new BusinessException(ConstantMSG.API_001);
                 }
