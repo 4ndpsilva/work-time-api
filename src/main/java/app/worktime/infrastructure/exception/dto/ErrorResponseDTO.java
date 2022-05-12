@@ -4,12 +4,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
 @Setter
-public class ErrorResponseDTO {
+public class ErrorResponseDTO implements Serializable {
     private String code;
     private String message;
     private Integer statusCode;

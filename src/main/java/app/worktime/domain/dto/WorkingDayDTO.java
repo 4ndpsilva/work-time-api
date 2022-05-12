@@ -6,12 +6,13 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Getter
 @Setter
-public class WorkingDayDTO {
+public class WorkingDayDTO implements Serializable {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
 
@@ -27,6 +28,5 @@ public class WorkingDayDTO {
     @NotBlank
     private String description;
 
-    @NotBlank
-    private boolean registered;
+    private Boolean registered;
 }

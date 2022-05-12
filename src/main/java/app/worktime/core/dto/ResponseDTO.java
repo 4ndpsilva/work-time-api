@@ -4,12 +4,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class ResponseDTO<T> {
+public class ResponseDTO<T> implements Serializable {
     private T data;
     private List<T> dataSet;
 

@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Map;
 
 public class BasicCrudService<T extends BaseEntity<ID>, ID extends Serializable> extends AbstractCrudService<T, ID> {
-    private final AbstractSpec<T> spec;
+    private AbstractSpec<T> spec;
 
     @Autowired
     public BasicCrudService(final BaseRepository<T, ID> repository, final AbstractSpec<T> spec, final Class<T> clazz) {
@@ -18,9 +18,17 @@ public class BasicCrudService<T extends BaseEntity<ID>, ID extends Serializable>
         this.spec = spec;
     }
 
+    @Autowired
+    public BasicCrudService(final BaseRepository<T, ID> repository, final Class<T> clazz) {
+        super(repository, clazz);
+    }
+
     @Override
     public Specification<T> createFilter(final Map<String, Object> params) {
-        spec.setParams(params);
+        if(spec != null){
+            spec.setParams(params);
+        }
+
         return spec;
     }
 }

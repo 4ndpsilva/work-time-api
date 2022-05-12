@@ -1,6 +1,7 @@
 package app.worktime.infrastructure.exception;
 
 import app.worktime.infrastructure.exception.dto.ErrorResponseDTO;
+import app.worktime.infrastructure.util.ConstantMSG;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -35,8 +36,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(DateTimeParseException.class)
-    public ResponseEntity<List<ErrorResponseDTO>> handleDateFormat(){
-        final BusinessException exception = new BusinessException("API-008");
+    public ResponseEntity<List<ErrorResponseDTO>> handleDateFormat() {
+        final BusinessException exception = new BusinessException(ConstantMSG.API_004);
         return responseMessageCreator.error(exception.getCodeMessage(), HttpStatus.BAD_REQUEST);
     }
 }

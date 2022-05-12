@@ -3,6 +3,7 @@ package app.worktime.core.service;
 import app.worktime.core.entity.BaseEntity;
 import app.worktime.core.repository.BaseRepository;
 import app.worktime.infrastructure.exception.ResourceNotFoundException;
+import app.worktime.infrastructure.util.ConstantMSG;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.BeanUtils;
@@ -85,7 +86,7 @@ public abstract class AbstractCrudService<T extends BaseEntity<ID>, ID extends S
             return opEntity.get();
         }
 
-        throw new ResourceNotFoundException("API-000", id);
+        throw new ResourceNotFoundException(ConstantMSG.API_000, id);
     }
 
     public List<T> find(Map<String, Object> params) {
