@@ -1,5 +1,6 @@
 package app.worktime.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,13 +21,19 @@ public class WorkingDayDTO implements Serializable {
     private LocalDate date;
 
     @NotNull
+    @JsonFormat(pattern = "HH:mm")
     private LocalTime startTime;
 
     @NotNull
+    @JsonFormat(pattern = "HH:mm")
     private LocalTime endTime;
 
     @NotBlank
     private String description;
 
     private Boolean registered;
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime balance;
 }

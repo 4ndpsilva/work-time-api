@@ -6,6 +6,7 @@ import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -27,4 +28,13 @@ public class WorkingDay extends BaseEntity<Long> {
 
     @Column(name = "REGISTERED")
     private boolean registered;
+
+    @Transient
+    private LocalTime balance;
+
+    public LocalTime getBalance(){
+        final LocalTime time = endTime.minusHours(startTime.getHour());
+        balance = time.minusMinutes(startTime.getMinute());
+        return balance;
+    }
 }
