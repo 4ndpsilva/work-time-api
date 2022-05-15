@@ -2,8 +2,10 @@ package app.worktime.domain.controller;
 
 import app.worktime.core.mapper.GenericMapper;
 import app.worktime.core.service.AbstractCrudService;
+import app.worktime.domain.dto.BalanceDTO;
 import app.worktime.domain.dto.WorkingDayDTO;
 import app.worktime.domain.entity.WorkingDay;
+import app.worktime.domain.service.BalanceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +29,7 @@ import java.util.Map;
 @RequestMapping("/api/v1/work-time")
 public class WorkingDayController {
     private final AbstractCrudService<WorkingDay, Long> service;
+    private final BalanceService balanceService;
     private final GenericMapper<WorkingDay, WorkingDayDTO> mapper;
 
     @PostMapping
@@ -52,5 +56,11 @@ public class WorkingDayController {
     @GetMapping
     public ResponseEntity<List<WorkingDayDTO>> find(@RequestParam final Map<String, Object> params) {
         return ResponseEntity.status(HttpStatus.OK).body(mapper.toListDTO(service.find(params)));
+    }
+
+    @GetMapping("/balance-hours")
+    public ResponseEntity<BalanceDTO> calculate(@RequestParam final String startDate, @RequestParam final String endDate) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(balanceService.calculate(LocalDate.parse(startDate), LocalDate.parse(endDate)));
     }
 }

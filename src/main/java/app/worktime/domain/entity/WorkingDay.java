@@ -33,8 +33,8 @@ public class WorkingDay extends BaseEntity<Long> {
     private LocalTime balance;
 
     public LocalTime getBalance(){
-        final LocalTime time = endTime.minusHours(startTime.getHour());
-        balance = time.minusMinutes(startTime.getMinute());
+        balance = endTime.minusHours(startTime.getHour());
+        balance = balance.minusMinutes(startTime.getMinute());
         return balance;
     }
 }
