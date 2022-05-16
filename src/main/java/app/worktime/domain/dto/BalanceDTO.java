@@ -1,5 +1,7 @@
 package app.worktime.domain.dto;
 
+import app.worktime.infrastructure.util.ConstantMSG;
+import app.worktime.infrastructure.util.ConstantUtil;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,12 +16,12 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BalanceDTO implements Serializable {
-    @JsonFormat(pattern = "HH:mm")
-    private LocalTime balanceHours;
+    @JsonFormat(pattern = ConstantUtil.TIME_PATTERN)
+    private LocalTime balanceHours = LocalTime.of(0, 0);
 
-    @JsonFormat(pattern = "HH:mm")
-    private LocalTime maxWorkingDayHours;
+    @JsonFormat(pattern = ConstantUtil.TIME_PATTERN)
+    private LocalTime maxWorkingDayHours = LocalTime.of(0, 0);;
 
-    @JsonFormat(pattern = "HH:mm")
-    private LocalTime minWorkingDayHours;
+    @JsonFormat(pattern = ConstantUtil.TIME_PATTERN)
+    private LocalTime minWorkingDayHours = LocalTime.of(0, 0);;
 }

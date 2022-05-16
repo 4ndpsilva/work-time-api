@@ -1,6 +1,7 @@
 package app.worktime.domain.entity;
 
 import app.worktime.core.entity.BaseEntity;
+import app.worktime.infrastructure.util.TimeUtil;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -33,8 +34,7 @@ public class WorkingDay extends BaseEntity<Long> {
     private LocalTime balance;
 
     public LocalTime getBalance(){
-        balance = endTime.minusHours(startTime.getHour());
-        balance = balance.minusMinutes(startTime.getMinute());
+        balance = TimeUtil.calculateInterval(startTime, endTime);
         return balance;
     }
 }

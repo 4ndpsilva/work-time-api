@@ -6,9 +6,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
 
+import static app.worktime.infrastructure.util.ConstantUtil.DATE_PATTERN;
+
 public class DateUtil {
-    private static final String DATE_PATTERN         = "dd/MM/yyyy";
-    private static final String TIME_PATTERN         = "HH:mm:ss";
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern(DATE_PATTERN);
 
     public static String format(final LocalDate date){

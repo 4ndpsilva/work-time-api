@@ -12,5 +12,5 @@ public final class ConstantMSG {
     public static final String API_008 = "API-008";
     public static final String API_009 = "API-009";
     public static final String API_010 = "API-010";
-    public static final String API_011 = "API-011'";
+    public static final String API_011 = "API-011";
 }
